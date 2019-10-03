@@ -1,6 +1,6 @@
 pipeline {
   environment {
-    registry = "romancin/arch-rutorrentvpn-docker"
+    registry = "romancin/arch-rutorrentvpn"
     repository = "arch-rutorrentvpn"
     withCredentials = 'dockerhub'
     registryCredential = 'dockerhub'
