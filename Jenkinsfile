@@ -1,6 +1,6 @@
 pipeline {
   environment {
-    registry = "romancin/arch-rutorrentvpn"
+    registry = "romancin/arch-rutorrentvpn-docker"
     repository = "arch-rutorrentvpn"
     withCredentials = 'dockerhub'
     registryCredential = 'dockerhub'
@@ -9,7 +9,7 @@ pipeline {
   stages {
     stage('Cloning Git Repository') {
       steps {
-        git url: 'https://github.com/romancin/arch-rutorrentvpn.git',
+        git url: 'https://github.com/romancin/arch-rutorrentvpn-docker.git',
             branch: '$BRANCH_NAME'
       }
     }
