@@ -51,8 +51,11 @@ fi
 # aur packages
 ####
 
+# uninstall conflicting packages
+pacman -R unrar --noconfirm
+
 # define aur packages
-aur_packages="autodl-irssi-community"
+aur_packages="autodl-irssi-community rar"
 
 # call aur install script (arch user repo) - note true required due to autodl-irssi error during install
 source aur.sh
@@ -65,6 +68,26 @@ github.sh -df github-rutorrent.zip -dp "/tmp" -ep "/tmp/extracted" -ip "/usr/sha
 
 # rutorrent plugin cloudflare requires python module 'CfScrape', use pip to install (python-pip = python 3.x)
 pip install --ignore-installed CfScrape
+
+# install rutorrent themes and plugins
+git clone https://github.com/QuickBox/club-QuickBox /usr/share/webapps/rutorrent/plugins/theme/themes/club-QuickBox
+git clone https://github.com/Phlooo/ruTorrent-MaterialDesign /usr/share/webapps/rutorrent/plugins/theme/themes/MaterialDesign
+git clone https://github.com/orobardet/rutorrent-force_save_session /usr/share/webapps/rutorrent/plugins/force_save_session
+git clone https://github.com/AceP1983/ruTorrent-plugins /usr/share/webapps/rutorrent/plugins/ruTorrent-plugins
+mv /usr/share/webapps/rutorrent/plugins/ruTorrent-plugins/* /usr/share/webapps/rutorrent/plugins/
+rm -rf /usr/share/webapps/rutorrent/plugins/ruTorrent-plugins
+git clone https://github.com/nelu/rutorrent-thirdparty-plugins.git /usr/share/webapps/rutorrent/plugins/rutorrent-thirdparty-plugins
+mv /usr/share/webapps/rutorrent/plugins/rutorrent-thirdparty-plugins/* /usr/share/webapps/rutorrent/plugins/
+rm -rf /usr/share/webapps/rutorrent/plugins/rutorrent-thirdparty-plugins
+chmod 755 /usr/share/webapps/rutorrent/plugins/filemanager/scripts/*
+rm -rf /usr/share/webapps/rutorrent/plugins/fileupload
+pacman -S cksfv tar zip unzip bzip2  --noconfirm
+git clone https://github.com/Gyran/rutorrent-pausewebui /usr/share/webapps/rutorrent/plugins/pausewebui
+git clone https://github.com/Gyran/rutorrent-ratiocolor /usr/share/webapps/rutorrent/plugins/ratiocolor
+sed -i 's/changeWhat = "cell-background";/changeWhat = "font";/g' /usr/share/webapps/rutorrent/plugins/ratiocolor/init.js
+git clone https://github.com/Gyran/rutorrent-instantsearch /usr/share/webapps/rutorrent/plugins/instantsearch
+git clone https://github.com/xombiemp/rutorrentMobile /usr/share/webapps/rutorrent/plugins/rutorrentMobile
+git clone https://github.com/dioltas/AddZip /usr/share/webapps/rutorrent/plugins/AddZip
 
 # github release - pyrocore
 ####

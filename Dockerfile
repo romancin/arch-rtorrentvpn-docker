@@ -26,6 +26,7 @@ ADD config/nobody/ /home/nobody/
 RUN chmod +x /root/*.sh /home/nobody/*.sh && \
 	/bin/bash /root/install.sh
 
+COPY rootfs /
 # docker settings
 #################
 
