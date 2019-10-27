@@ -21,7 +21,8 @@ mv /tmp/scripts-master/shell/arch/docker/*.sh /usr/local/bin/
 libtorrentps_package_name="libtorrent-ps.tar.xz"
 
 # download compiled libtorrent-ps (used by rtorrent-ps)
-curly.sh -rc 6 -rw 10 -of "/tmp/${libtorrentps_package_name}" -url "https://github.com/binhex/arch-packages/raw/master/compiled/libtorrent-ps.tar.xz"
+# curly.sh -rc 6 -rw 10 -of "/tmp/${libtorrentps_package_name}" -url "https://github.com/binhex/arch-packages/raw/master/compiled/libtorrent-ps.tar.xz"
+curly.sh -rc 6 -rw 10 -of "/tmp/${libtorrentps_package_name}" -url "https://github.com/binhex/arch-packages/raw/master/compiled/libtorrent-ps-1.1.r42.g37c9d4b-1-any.pkg.tar.xz"
 
 # install libtorrent-ps
 pacman -U "/tmp/${libtorrentps_package_name}" --noconfirm
@@ -29,7 +30,8 @@ pacman -U "/tmp/${libtorrentps_package_name}" --noconfirm
 rtorrentps_package_name="rtorrent-ps.tar.xz"
 
 # download compiled rtorrent-ps (cannot compile during docker build)
-curly.sh -rc 6 -rw 10 -of "/tmp/${rtorrentps_package_name}" -url "https://github.com/binhex/arch-packages/raw/master/compiled/rtorrent-ps.tar.xz"
+# curly.sh -rc 6 -rw 10 -of "/tmp/${rtorrentps_package_name}" -url "https://github.com/binhex/arch-packages/raw/master/compiled/rtorrent-ps.tar.xz"
+curly.sh -rc 6 -rw 10 -of "/tmp/${rtorrentps_package_name}" -url "https://github.com/binhex/arch-packages/raw/master/compiled/rtorrent-ps-1.1.r42.g37c9d4b-1-any.pkg.tar.xz"
 
 # install rtorrent-ps
 pacman -U "/tmp/${rtorrentps_package_name}" --noconfirm
